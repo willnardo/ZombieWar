@@ -15,10 +15,21 @@ public class ZombieWarTeam2 {
         // TODO code application logic here
     }
     
-    /*
-    System.out.print("We have " + variable + " survivors trying to make it to safety.");
-    System.out.print("But there are " + variable + " zombies waiting for them.");
+    /* Release 1 output
+    System.out.print("We have " + survivorVariable + " survivors trying to make it to safety.");
+    System.out.print("But there are " + zombieVariable + " zombies waiting for them.");
     System.out.print("It seems " + variable + " have made it to safety.");
+    */
+    
+    /* Release 2 output
+    System.out.print("We have " + survivorVariable + " survivors trying to make it to safety. (" + childrenVariable + " children, " + teacherVariable " teacher(s), and " + soldierVariable + " soldier(s))" );
+    System.out.print("But there are " + zombieVariable + " zombies waiting for them.(" + commonVariable + " common infected and " + tankVariable " tank(s)" );
+    if(survivorVariable==0){
+      System.out.print("None of the survivors made it.");  
+    }
+    else{
+        System.out.print(survivorVariable + " of the survivors made it.");
+    }
     */
     
 }

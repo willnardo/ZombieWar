@@ -15,4 +15,10 @@ public class ZombieWarTeam2 {
         // TODO code application logic here
     }
     
+    /*
+    System.out.print("We have " + variable + " survivors trying to make it to safety.");
+    System.out.print("But there are " + variable + " zombies waiting for them.");
+    System.out.print("It seems " + variable + " have made it to safety.");
+    */
+    
 }

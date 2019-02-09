@@ -7,6 +7,7 @@ package zombiewarteam2;
  * CSC 422
  */
 public class Child extends Survivor {
+    // Will testing push //
     int health = 20;
     int attack = 2;
     

@@ -76,10 +76,11 @@ public class ZombieWarTeam2 {
             ZombieWarTeam2 z = new ZombieWarTeam2();
             //populate survivor arraylist
             ArrayList<Survivor> arr = z.createSurvivors();
-            //test print for survivors
-            for(Survivor Soldier : arr){
-                System.out.println(Soldier);  
-            }
+        //test print for survivors
+        // Will testing push //
+        arr.forEach((Soldier) -> {
+            System.out.println(Soldier);
+        });
             System.out.println("We have " + z.survivorCount + " survivors trying to make it to safety.");
 
         }

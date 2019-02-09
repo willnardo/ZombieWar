@@ -10,7 +10,7 @@ public class Soldier extends Survivor{
     int health = 100;
     int attack = 10;
     
-    public Soldier(){
-
+    public Soldier(String name){
+        this.name = name;
     }
 }

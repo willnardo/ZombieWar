@@ -6,14 +6,91 @@
 package zombiewarteam2;
 
 
-public class ZombieWarTeam2 {
+import java.util.ArrayList;
+import java.util.Random;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+
+public class ZombieWarTeam2 {
+    //variables
+    Random rn = new Random();
+    public int decider = rn.nextInt(8-0+1)+1;
+    public int survivorCount = rn.nextInt(19-0+1)+1;
+    public int teacherCount = 1;
+    public int childCount = 1;
+    public int soldierCount = 1;
+    
+    /*
+    createSurvivors will be used to create random survivors. 
+    My idea is that there will be a random number generator that will set the amount of survivors.
+    When createSurvivors is called, it will go through for loop, at each iteration, it will generate a new
+    random # that will determine what type of survivor to make.
+    */
+    
+    public ArrayList<Survivor> createSurvivors(){
+        String tempName;
+        ArrayList<Survivor> s = new ArrayList<>();
+        
+        for(int i=survivorCount; i>0; i--){
+            //generate random number
+            decider = rn.nextInt(8-0+1)+1;
+            if(decider>0 && decider<4){
+            //create teacher
+                //set teacher name
+                tempName = "Teacher" + teacherCount;
+                //create new teacher with name
+                s.add(new Teacher(tempName));
+                //increment counter
+                teacherCount++;
+            }
+            if(decider>3 && decider<7){
+            //create child
+                //set child name
+                tempName = "Child" + childCount;
+                //create new teacher with name
+                s.add(new Child(tempName));
+                //increment counter
+                childCount++;
+            }
+            if(decider>6 && decider<9){
+            //create soldier
+                //set soldier name
+                tempName = "Soldier" + soldierCount;
+                //create new Soldier with name
+                s.add(new Soldier(tempName));
+                //increment counter
+                soldierCount++;
+            }
+        } 
+
+        return s;
+        }
+    
+    
+    
+    
+    
+    /////////////////////////////////////////////////////////////
+    
+    
+        public static void main(String[] args) {
+            Random rn = new Random();
+
+
+            ZombieWarTeam2 z = new ZombieWarTeam2();
+
+            ArrayList<Survivor> arr = z.createSurvivors();
+
+
+            //test print for survivors
+            for(Survivor Soldier : arr){
+                System.out.println(Soldier);  
+            }
+
+        }
+
+       
     }
+
     
     /* Release 1 output
     System.out.print("We have " + survivorVariable + " survivors trying to make it to safety.");
@@ -32,4 +109,5 @@ public class ZombieWarTeam2 {
     }
     */
     
-}
+    
+

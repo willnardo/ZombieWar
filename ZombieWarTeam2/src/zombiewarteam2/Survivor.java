@@ -1,6 +1,8 @@
 
 package zombiewarteam2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Dan Sager
@@ -8,6 +10,7 @@ package zombiewarteam2;
  */
 public class Survivor {
     //variables
+    String name;
     int health;
     int attack;
     /* //not really sure if we need these anymore
@@ -17,8 +20,19 @@ public class Survivor {
     */
     
     //methods
+    public String getName(){
+        return this.name;
+    }
+    
+    @Override 
+    public String toString(){
+        return this.getName();
+    }
+    
+    
+    
     public void performAttack(Object o){ //needs zombie class still or make a super class of Character for Zombie and Survivor.
-        o.health -= attack;
+        //o.health -= attack;
     }
     
     public void die(){

@@ -8,5 +8,9 @@ package zombiewarteam2;
  */
 public class Teacher extends Survivor{
     int health = 50;
-    int attack = 5;   
+    int attack = 5;  
+    
+    public Teacher(String name){
+        this.name = name;
+    }
 }

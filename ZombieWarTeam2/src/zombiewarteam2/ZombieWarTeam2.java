@@ -27,9 +27,11 @@ public class ZombieWarTeam2 {
     */
     
     public ArrayList<Survivor> createSurvivors(){
+        //local variable
         String tempName;
+        //
         ArrayList<Survivor> s = new ArrayList<>();
-        
+        //
         for(int i=survivorCount; i>0; i--){
             //generate random number
             decider = rn.nextInt(8-0+1)+1;
@@ -64,34 +66,26 @@ public class ZombieWarTeam2 {
 
         return s;
         }
+
     
-    
-    
-    
-    
-    /////////////////////////////////////////////////////////////
+    /////////////////////////// MAIN //////////////////////////////////
     
     
         public static void main(String[] args) {
-            Random rn = new Random();
-
-
+            //create arraylist
             ZombieWarTeam2 z = new ZombieWarTeam2();
-
+            //populate survivor arraylist
             ArrayList<Survivor> arr = z.createSurvivors();
-
-
             //test print for survivors
             for(Survivor Soldier : arr){
                 System.out.println(Soldier);  
             }
+            System.out.println("We have " + z.survivorCount + " survivors trying to make it to safety.");
 
         }
-
        
     }
 
-    
     /* Release 1 output
     System.out.print("We have " + survivorVariable + " survivors trying to make it to safety.");
     System.out.print("But there are " + zombieVariable + " zombies waiting for them.");

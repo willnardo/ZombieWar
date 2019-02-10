@@ -153,8 +153,9 @@ public class ZombieWarTeam2 {
                     }
                     // If zombie has less than 1 health (0 or less), it is removed from the list
                     if (tempHealth < 1) {
-                        zombieList.remove(k);
                         System.out.println(survivorList.get(i).getName() + " killed " + zombieList.get(k).getName());
+                        zombieList.remove(k);
+                        
                     }
                 }
             }
@@ -169,8 +170,9 @@ public class ZombieWarTeam2 {
                         survivorList.get(k).setHealth(tempHealth - zombieList.get(i).getDamage());
                     }
                     if (tempHealth < 1) {
-                        survivorList.remove(k);
                         System.out.println(zombieList.get(i).getName() + " killed " + survivorList.get(k).getName());
+                        survivorList.remove(k);
+                        
                         
                     }
                 }

@@ -150,6 +150,8 @@ public class ZombieWarTeam2 {
                     if (tempHealth > 0) {
                         // I am taking the tempHealth - survivors Damage rating and using setHealth to update the health
                         zombieList.get(k).setHealth(tempHealth - survivorList.get(i).getDamage());
+                        //Need this to update health incase this last attack kills.  Then it would be removed from list instead of wating until next attacker.
+                        tempHealth = zombieList.get(k).getHealth();
                     }
                     // If zombie has less than 1 health (0 or less), it is removed from the list
                     if (tempHealth < 1) {
@@ -168,6 +170,8 @@ public class ZombieWarTeam2 {
                     tempHealth = survivorList.get(k).getHealth();
                     if (tempHealth > 0) {
                         survivorList.get(k).setHealth(tempHealth - zombieList.get(i).getDamage());
+                        //Need this to update health incase this last attack kills.  Then it would be removed from list instead of wating until next attacker.
+                        tempHealth = survivorList.get(k).getHealth();
                     }
                     if (tempHealth < 1) {
                         System.out.println(zombieList.get(i).getName() + " killed " + survivorList.get(k).getName());

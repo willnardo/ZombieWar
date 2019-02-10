@@ -16,8 +16,8 @@ public class Tank extends Zombie {
 //    public int health = 30;
 //    public int attack = 5;
     // CommonInfect Constructor
-    public Tank() {
-        super.setName("Tank");
+    public Tank(String name) {
+        super.setName(name); //changed name to add # next to the object for formatting. 
         super.setHealth(150);
         super.setDamage(20);
     }

@@ -11,7 +11,7 @@ public class Child extends Survivor {
 //    int attack = 2;
 
     public Child(String name) {
-        super.setName("Child");
+        super.setName(name); //changed name to add # next to the object for formatting.
         super.setHealth(20);
         super.setDamage(2);
     }

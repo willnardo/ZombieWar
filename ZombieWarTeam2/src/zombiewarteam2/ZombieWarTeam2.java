@@ -82,20 +82,20 @@ public class ZombieWarTeam2 {
             //generate random number
             decider = rn.nextInt(8 - 0 + 1) + 1;
             if (decider > 0 && decider < 5) {
-                //create teacher
-                //set teacher name
-                tempName = "Teacher" + teacherCount;
-                //create new teacher with name
-                zombieList.add(new CommonInfect());
+                //create common infected
+                //set common infected name
+                tempName = "Common Infected" + commonInfectCount;
+                //create new common infected with name
+                zombieList.add(new CommonInfect(tempName));
                 //increment counter
                 commonInfectCount++;
             }
             if (decider > 4 && decider < 10) {
-                //create child
-                //set child name
-                tempName = "Child" + childCount;
-                //create new teacher with name
-                zombieList.add(new Tank());
+                //create tank
+                //set tank name
+                tempName = "Tank" + TankCount;
+                //create new tank with name
+                zombieList.add(new Tank(tempName));
                 //increment counter
                 TankCount++;
             }
@@ -118,6 +118,10 @@ public class ZombieWarTeam2 {
         //test print for survivors
         // Will testing push //
         
+        //inserting initial character prints to format correctly.
+        // Release 2 output
+        System.out.println("We have " + s.survivorCount + " survivors trying to make it to safety. (" + s.childCount + " children, " + s.teacherCount + " teacher(s), and " + s.soldierCount + " soldier(s))");
+        System.out.println("But there are " + z.zombieCount + " zombies waiting for them.(" + z.commonInfectCount + " common infected and " + z.TankCount + " tank(s)" );
         
         
 //         ---------- UNCOMMENT THIS SECTION TO SEE WHAT SURVIVORS AND ZOMBIES ARE GENERATED ---------
@@ -150,6 +154,7 @@ public class ZombieWarTeam2 {
                     // If zombie has less than 1 health (0 or less), it is removed from the list
                     if (tempHealth < 1) {
                         zombieList.remove(k);
+                        System.out.println(survivorList.get(i).getName() + " killed " + zombieList.get(k).getName());
                     }
                 }
             }
@@ -165,6 +170,8 @@ public class ZombieWarTeam2 {
                     }
                     if (tempHealth < 1) {
                         survivorList.remove(k);
+                        System.out.println(zombieList.get(i).getName() + " killed " + survivorList.get(k).getName());
+                        
                     }
                 }
             }
@@ -172,7 +179,7 @@ public class ZombieWarTeam2 {
             //System.out.print("Battle");
         }
 
-        // Release 1 output
+        /*// Release 1 output
         System.out.println("We have " + s.survivorCount + " survivors trying to make it to safety.");
         System.out.println("But there are " + z.zombieCount + " zombies waiting for them.");
         
@@ -180,7 +187,21 @@ public class ZombieWarTeam2 {
             System.out.println("It seems " + survivorList.size() + " have made it to safety");
         } else {
             System.out.println("None of the survivors made it.");
+        }*/
+        
+        
+
+        
+        
+        
+
+        
+        if (!survivorList.isEmpty()) {
+            System.out.println("It seems " + survivorList.size() + " have made it to safety");
+        } else {
+            System.out.println("None of the survivors made it.");
         }
+        
 
     }
 

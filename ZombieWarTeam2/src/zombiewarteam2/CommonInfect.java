@@ -16,8 +16,8 @@ public class CommonInfect extends Zombie {
 //    public int health = 30;
 //    public int attack = 5;
     // CommonInfect Constructor
-    public CommonInfect() {
-        super.setName("Common Infected");
+    public CommonInfect(String name) {
+        super.setName(name); //changed name to add # next to the object for formatting.
         super.setHealth(30);
         super.setDamage(5);
     }

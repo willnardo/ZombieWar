@@ -13,7 +13,7 @@ public class Soldier extends Survivor{
     // Will testing push //
     
     public Soldier(String name){
-        super.setName("Soldier");
+        super.setName(name); //changed name to add # next to the object for formatting.
         super.setHealth(100);
         super.setDamage(10);
     }

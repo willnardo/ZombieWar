@@ -7,11 +7,14 @@ package zombiewarteam2;
  * CSC 422
  */
 public class Teacher extends Survivor{
-    int health = 50;
-    int attack = 5;  
+//    int health = 50;
+//    int attack = 5;  
     
     public Teacher(String name){
-        this.name = name;
+        super.setName("Teacher");
+        super.setHealth(50);
+        super.setDamage(5);
+        
     }
     
     // Will testing push //

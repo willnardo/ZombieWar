@@ -1,18 +1,18 @@
 
 package zombiewarteam2;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Dan Sager
  * CSC 422
  */
-public class Survivor {
+public abstract class Survivor {
+
+
     //variables
-    String name;
-    int health;
-    int attack;
+    private String name;
+    private int health;
+    private int damage;
     /* //not really sure if we need these anymore
     boolean hasWeapon; 
     String weaponName;
@@ -24,19 +24,52 @@ public class Survivor {
         return this.name;
     }
     
+    public void setName(String name){
+        this.name = name;
+    }
+    
     @Override 
     public String toString(){
         return this.getName();
     }
     
+        /**
+     * @return the health
+     */
+    public int getHealth() {
+        return health;
+    }
+
+    /**
+     * @param health the health to set
+     */
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    /**
+     * @return the damage
+     */
+    public int getDamage() {
+        return damage;
+    }
+
+    /**
+     * @param damage the damage to set
+     */
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
     
     
-    public void performAttack(Object o){ //needs zombie class still or make a super class of Character for Zombie and Survivor.
+    
+    public void Attack(Zombie z){ //needs zombie class still or make a super class of Character for Zombie and Survivor.
         //o.health -= attack;
+        
     }
     
     public void die(){
-      if(health<=0){
+      if(getHealth()<=0){
           
       }  
     }

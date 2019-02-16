@@ -13,9 +13,9 @@ package zombiewarteam2;
 public class Axe extends Weapon{
     
     //Constructor
-    public Axe(String name){
+    public Axe(){
         //Not sure how to do the types yet if it is just the same as name
-        super.setName(name);
+        super.setName("Axe");
         super.setDamage(7);
         super.setAccuracy(9/10);
     }

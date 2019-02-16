@@ -13,12 +13,23 @@ public abstract class Survivor {
     private String name;
     private int health;
     private int damage;
+    private Weapon weapon;
     /* //not really sure if we need these anymore
     boolean hasWeapon; 
     String weaponName;
     int weaponDamage;
     */
+//    public Survivor(Weapon weapon){
+//        this.weapon = weapon;
+//    }
     
+    public void setWeapon(Weapon weapon){
+        this.weapon = weapon;
+    }
+    
+    public Weapon getWeapon(){
+        return weapon;
+    }
     //methods
     public String getName(){
         return this.name;

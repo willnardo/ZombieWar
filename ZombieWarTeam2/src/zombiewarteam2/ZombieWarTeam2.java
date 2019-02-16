@@ -14,6 +14,7 @@ public class ZombieWarTeam2 {
     Random rn = new Random();
     public int decider;
     public int survivorCount = rn.nextInt(19 - 0 + 1) + 1;
+    public int weaponCount = survivorCount;
     public int teacherCount = 0;
     public int childCount = 0;
     public int soldierCount = 0;
@@ -22,18 +23,19 @@ public class ZombieWarTeam2 {
     public int commonInfectCount = 0;
     public int TankCount = 0;
 
-
     /*
     createSurvivors will be used to create random survivors. 
     My idea is that there will be a random number generator that will set the amount of survivors.
     When createSurvivors is called, it will go through for loop, at each iteration, it will generate a new
     random # that will determine what type of survivor to make.
      */
-    public ArrayList<Survivor> createSurvivors() {
-        //System.out.println("SURVIVOR COUNT: " + survivorCount);
+    public ArrayList<Survivor> createSurvivors(ArrayList<Weapon> weapons) {
+//        System.out.println("SURVIVOR COUNT: " + survivorCount);
+//        System.out.println("WEAPON COUNT: " + weaponCount);
         //local variable
         String tempName;
         //
+        ArrayList<Weapon> weaponList = weapons;
         ArrayList<Survivor> survivorList = new ArrayList<>();
         //
         for (int i = survivorCount; i > 0; i--) {
@@ -44,7 +46,8 @@ public class ZombieWarTeam2 {
                 //set teacher name
                 tempName = "Teacher" + teacherCount;
                 //create new teacher with name
-                survivorList.add(new Teacher(tempName));
+                survivorList.add(new Teacher(weaponList.get(i - 1)));
+
                 //increment counter
                 teacherCount++;
             }
@@ -53,7 +56,7 @@ public class ZombieWarTeam2 {
                 //set child name
                 tempName = "Child" + childCount;
                 //create new teacher with name
-                survivorList.add(new Child(tempName));
+                survivorList.add(new Child(weaponList.get(i - 1)));
                 //increment counter
                 childCount++;
             }
@@ -62,7 +65,7 @@ public class ZombieWarTeam2 {
                 //set soldier name
                 tempName = "Soldier" + soldierCount;
                 //create new Soldier with name
-                survivorList.add(new Soldier(tempName));
+                survivorList.add(new Soldier(weaponList.get(i - 1)));
                 //increment counter
                 soldierCount++;
             }
@@ -105,25 +108,70 @@ public class ZombieWarTeam2 {
         return zombieList;
     }
 
+    public ArrayList<Weapon> createWeapons() {
+//        System.out.println("SURVIVOR COUNT: " + survivorCount);
+//        System.out.println("WEAPON COUNT: " + weaponCount);
+        //local variable
+        String tempName;
+        //
+        ArrayList<Weapon> weaponList = new ArrayList<>();
+        //
+        for (int i = survivorCount; i > 0; i--) {
+            //generate random number
+            decider = rn.nextInt(8 - 0 + 1) + 1;
+            if (decider >= 0 && decider < 4) {
+                //create teacher
+                //set teacher name
+                tempName = "Teacher" + teacherCount;
+                //create new teacher with name
+                weaponList.add(new Shotgun());
+                //increment counter
+                //teacherCount++;
+            }
+            if (decider > 3 && decider < 7) {
+                //create child
+                //set child name
+                tempName = "Child" + childCount;
+                //create new teacher with name
+                weaponList.add(new Pistol());
+                //increment counter
+                //childCount++;
+            }
+            if (decider > 6 && decider < 10) {
+                //create soldier
+                //set soldier name
+                tempName = "Soldier" + soldierCount;
+                //create new Soldier with name
+                weaponList.add(new Crowbar());
+                //increment counter
+                //soldierCount++;
+            }
+        }
+
+        return weaponList;
+    }
+
     /////////////////////////// MAIN //////////////////////////////////
     public static void main(String[] args) {
+
         // used for attacking loop below
         int tempHealth;
         //create arraylist
         ZombieWarTeam2 s = new ZombieWarTeam2();
         ZombieWarTeam2 z = new ZombieWarTeam2();
+        ZombieWarTeam2 w = new ZombieWarTeam2();
         //populate survivor arraylist
-        ArrayList<Survivor> survivorList = s.createSurvivors();
+        ArrayList<Weapon> weaponList = w.createWeapons();
+        ArrayList<Survivor> survivorList = s.createSurvivors(weaponList);
         ArrayList<Zombie> zombieList = z.createZombies();
         //test print for survivors
         // Will testing push //
-        
+
         //inserting initial character prints to format correctly.
         // Release 2 output
         System.out.println("We have " + s.survivorCount + " survivors trying to make it to safety. (" + s.childCount + " children, " + s.teacherCount + " teacher(s), and " + s.soldierCount + " soldier(s))");
-        System.out.println("But there are " + z.zombieCount + " zombies waiting for them.(" + z.commonInfectCount + " common infected and " + z.TankCount + " tank(s)" );
-        
-        
+        System.out.println("But there are " + z.zombieCount + " zombies waiting for them.(" + z.commonInfectCount + " common infected and " + z.TankCount + " tank(s)");
+
 //         ---------- UNCOMMENT THIS SECTION TO SEE WHAT SURVIVORS AND ZOMBIES ARE GENERATED ---------
 //
 //        survivorList.forEach((Survivor) -> {
@@ -135,9 +183,6 @@ public class ZombieWarTeam2 {
 //            System.out.println(Zombie + " Health: " + Zombie.getHealth()
 //                    + " --- Damage: " + Zombie.getDamage());
 //        });
-
-
-
         // The while loop will have each list of survivors and zombies attack eachother until one list is empty
         while (!survivorList.isEmpty() && !zombieList.isEmpty()) {
 
@@ -146,6 +191,9 @@ public class ZombieWarTeam2 {
                 for (int k = 0; k < zombieList.size(); k++) {
                     //Storing the current zombie's health
                     tempHealth = zombieList.get(k).getHealth();
+
+                    //checking for weapons
+                    System.out.println("Weapons check: " + survivorList.get(i).getWeapon().toString());
                     //If zombie has health, it takes an attack
                     if (tempHealth > 0) {
                         // I am taking the tempHealth - survivors Damage rating and using setHealth to update the health
@@ -157,7 +205,7 @@ public class ZombieWarTeam2 {
                     if (tempHealth < 1) {
                         System.out.println(survivorList.get(i).getName() + " killed " + zombieList.get(k).getName());
                         zombieList.remove(k);
-                        
+
                     }
                 }
             }
@@ -176,8 +224,7 @@ public class ZombieWarTeam2 {
                     if (tempHealth < 1) {
                         System.out.println(zombieList.get(i).getName() + " killed " + survivorList.get(k).getName());
                         survivorList.remove(k);
-                        
-                        
+
                     }
                 }
             }
@@ -194,20 +241,11 @@ public class ZombieWarTeam2 {
         } else {
             System.out.println("None of the survivors made it.");
         }*/
-        
-        
-
-        
-        
-        
-
-        
         if (!survivorList.isEmpty()) {
             System.out.println("It seems " + survivorList.size() + " have made it to safety");
         } else {
             System.out.println("None of the survivors made it.");
         }
-        
 
     }
 

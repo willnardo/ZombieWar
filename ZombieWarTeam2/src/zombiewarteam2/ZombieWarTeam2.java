@@ -66,6 +66,7 @@ public class ZombieWarTeam2 {
                 tempName = "Soldier" + soldierCount;
                 //create new Soldier with name
                 survivorList.add(new Soldier(weaponList.get(i - 1)));
+                
                 //increment counter
                 soldierCount++;
             }
@@ -191,9 +192,13 @@ public class ZombieWarTeam2 {
                 for (int k = 0; k < zombieList.size(); k++) {
                     //Storing the current zombie's health
                     tempHealth = zombieList.get(k).getHealth();
-
+                   
+                    // Random Number if (Accuracy < RandomNumber)
+                    
+                    
                     //checking for weapons
                     System.out.println("Weapons check: " + survivorList.get(i).getWeapon().toString());
+                    System.out.println("Damage level: " + survivorList.get(i).getDamage());
                     //If zombie has health, it takes an attack
                     if (tempHealth > 0) {
                         // I am taking the tempHealth - survivors Damage rating and using setHealth to update the health

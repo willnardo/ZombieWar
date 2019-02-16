@@ -11,8 +11,8 @@ public class Teacher extends Survivor {
     public Teacher(Weapon weapon) {
         super.setName("Teacher"); //changed name to add # next to the object for formatting.
         super.setHealth(50);
-        super.setDamage(5);
         super.setWeapon(weapon);
+        super.setDamage(10 + super.getWeapon().getDamage());
 
     }
 

@@ -12,8 +12,8 @@ public class Soldier extends Survivor {
     public Soldier(Weapon weapon) {
         super.setName("Soldier"); //changed name to add # next to the object for formatting.
         super.setHealth(100);
-        super.setDamage(10);
         super.setWeapon(weapon);
+        super.setDamage(10 + super.getWeapon().getDamage());
     }
 
     public Soldier(String name) {

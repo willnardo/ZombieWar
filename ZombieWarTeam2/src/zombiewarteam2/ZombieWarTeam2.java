@@ -67,7 +67,6 @@ public class ZombieWarTeam2 {
                 tempName = "Soldier" + soldierCount;
                 //create new Soldier with name
                 survivorList.add(new Soldier(weaponList.get(i - 1)));
-                
                 //increment counter
                 soldierCount++;
             }
@@ -161,7 +160,6 @@ public class ZombieWarTeam2 {
         ZombieWarTeam2 z = new ZombieWarTeam2();
         ZombieWarTeam2 w = new ZombieWarTeam2();
         //populate survivor arraylist
-        ArrayList<Weapon> weaponList = w.createWeapons();
         ArrayList<Survivor> survivorList = s.createSurvivors();
         ArrayList<Zombie> zombieList = z.createZombies();
         //test print for survivors
@@ -169,8 +167,8 @@ public class ZombieWarTeam2 {
 
         //inserting initial character prints to format correctly.
         // Release 2 output
-        System.out.println("We have " + s.survivorCount + " survivors trying to make it to safety. (" + s.childCount + " children, " + s.teacherCount + " teacher(s), and " + s.soldierCount + " soldier(s))");
-        System.out.println("But there are " + z.zombieCount + " zombies waiting for them.(" + z.commonInfectCount + " common infected and " + z.TankCount + " tank(s)");
+        System.out.println("We have " + survivorList.size() + " survivors trying to make it to safety. (" + s.childCount + " children, " + s.teacherCount + " teacher(s), and " + s.soldierCount + " soldier(s))");
+        System.out.println("But there are " + zombieList.size() + " zombies waiting for them.(" + z.commonInfectCount + " common infected and " + z.TankCount + " tank(s)");
 
 //         ---------- UNCOMMENT THIS SECTION TO SEE WHAT SURVIVORS AND ZOMBIES ARE GENERATED ---------
 //

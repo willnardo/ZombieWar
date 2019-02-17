@@ -40,7 +40,7 @@ public class ZombieWarTeam2 {
         //
         for (int i = survivorCount; i > 0; i--) {
             //generate random number
-            decider = rn.nextInt(8 - 0 + 1) + 1;
+            decider = rn.nextInt(9 - 0 + 1) + 1;
             if (decider >= 0 && decider < 4) {
                 //create teacher
                 //set teacher name
@@ -120,32 +120,33 @@ public class ZombieWarTeam2 {
         for (int i = survivorCount; i > 0; i--) {
             //generate random number
             decider = rn.nextInt(8 - 0 + 1) + 1;
-            if (decider >= 0 && decider < 4) {
-                //create teacher
-                //set teacher name
-                tempName = "Teacher" + teacherCount;
-                //create new teacher with name
-                weaponList.add(new Shotgun());
-                //increment counter
-                //teacherCount++;
-            }
-            if (decider > 3 && decider < 7) {
-                //create child
-                //set child name
-                tempName = "Child" + childCount;
-                //create new teacher with name
-                weaponList.add(new Pistol());
-                //increment counter
-                //childCount++;
-            }
-            if (decider > 6 && decider < 10) {
-                //create soldier
-                //set soldier name
-                tempName = "Soldier" + soldierCount;
-                //create new Soldier with name
+            if (decider >= 0 || decider <= 1) {
+                //create Crowbar
                 weaponList.add(new Crowbar());
-                //increment counter
-                //soldierCount++;
+            }
+            if (decider == 2) {
+                //create Axe
+                weaponList.add(new Axe());
+            }
+            if (decider == 3) {
+                //create Frying_Pan
+                weaponList.add(new Frying_Pan());
+            }
+            if (decider == 4) {
+                //create Shotgun
+                weaponList.add(new Shotgun());
+            }
+            if (decider == 5) {
+                //create Pistol
+                weaponList.add(new Pistol());
+            }
+            if (decider == 6) {
+                //create Assault_Rifle
+                weaponList.add(new Assault_Rifle());
+            }
+            if (decider == 7) {
+                //create Submachine_Gun
+                weaponList.add(new Submachine_Gun());
             }
         }
 

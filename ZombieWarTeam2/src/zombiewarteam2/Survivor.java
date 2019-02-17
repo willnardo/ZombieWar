@@ -1,4 +1,3 @@
-
 package zombiewarteam2;
 
 /**
@@ -86,4 +85,3 @@ public abstract class Survivor {
     }
     // Will testing push //
 }
-

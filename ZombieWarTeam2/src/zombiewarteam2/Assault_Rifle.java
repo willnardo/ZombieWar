@@ -17,7 +17,7 @@ public class Assault_Rifle extends Weapon{
         //Not sure how to do the types yet if it is just the same as name
         super.setName("Assault Rifle");
         super.setDamage(20);
-        super.setAccuracy(4/5);
+        super.setAccuracy(5);
     }
     
 }

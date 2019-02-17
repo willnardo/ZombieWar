@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,7 +17,7 @@ public class Pistol extends Weapon {
         //Not sure how to do the types yet if it is just the same as name
         super.setName("Pistol");
         super.setDamage(9);
-        super.setAccuracy(7 / 10);
+        super.setAccuracy(6);
     }
 
 }

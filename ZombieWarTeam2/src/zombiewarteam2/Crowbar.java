@@ -16,7 +16,7 @@ public class Crowbar extends Weapon {
         //Not sure how to do the types yet if it is just the same as name
         super.setName("Crowbar");
         super.setDamage(5);
-        super.setAccuracy(9 / 10);
+        super.setAccuracy(8);
     }
 
 }

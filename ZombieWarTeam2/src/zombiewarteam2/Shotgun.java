@@ -17,6 +17,6 @@ public class Shotgun extends Weapon{
         //Not sure how to do the types yet if it is just the same as name
         super.setName("Shotgun");
         super.setDamage(30);
-        super.setAccuracy(1/5);
+        super.setAccuracy(3);
     }
 }

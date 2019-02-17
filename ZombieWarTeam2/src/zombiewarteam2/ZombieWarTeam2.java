@@ -182,6 +182,8 @@ public class ZombieWarTeam2 {
 //                    + " --- Damage: " + Zombie.getDamage());
 //        });
         // The while loop will have each list of survivors and zombies attack eachother until one list is empty
+        Random accuracyRN = new Random();
+        
         while (!survivorList.isEmpty() && !zombieList.isEmpty()) {
 
             // Survivors Attack! 
@@ -190,24 +192,29 @@ public class ZombieWarTeam2 {
                     //Storing the current zombie's health
                     tempHealth = zombieList.get(k).getHealth();
                    
+                    //Random for accuracy roll
+                    int accuracyRoll = accuracyRN.nextInt(9 - 0 + 1) + 1;
                     // Random Number if (Accuracy < RandomNumber)
+                    if (survivorList.get(i).getWeapon().getAccuracy() > accuracyRoll){
                     
-                    
-                    //checking for weapons
-                    System.out.println("Weapons check: " + survivorList.get(i).getWeapon().toString());
-                    System.out.println("Damage level: " + survivorList.get(i).getDamage());
-                    //If zombie has health, it takes an attack
-                    if (tempHealth > 0) {
-                        // I am taking the tempHealth - survivors Damage rating and using setHealth to update the health
-                        zombieList.get(k).setHealth(tempHealth - survivorList.get(i).getDamage());
-                        //Need this to update health incase this last attack kills.  Then it would be removed from list instead of wating until next attacker.
-                        tempHealth = zombieList.get(k).getHealth();
-                    }
-                    // If zombie has less than 1 health (0 or less), it is removed from the list
-                    if (tempHealth < 1) {
-                        System.out.println(survivorList.get(i).getName() + " killed " + zombieList.get(k).getName());
-                        zombieList.remove(k);
+                        //checking for weapons
+                        //System.out.println("Weapons check: " + survivorList.get(i).getWeapon().toString());
+                        //System.out.println("Damage level: " + survivorList.get(i).getDamage());
+                        //If zombie has health, it takes an attack
+                        if (tempHealth > 0) {
+                            // I am taking the tempHealth - survivors Damage rating and using setHealth to update the health
+                            zombieList.get(k).setHealth(tempHealth - survivorList.get(i).getDamage());
+                            //Need this to update health incase this last attack kills.  Then it would be removed from list instead of wating until next attacker.
+                            tempHealth = zombieList.get(k).getHealth();
+                        }
+                        // If zombie has less than 1 health (0 or less), it is removed from the list
+                        if (tempHealth < 1) {
+                            System.out.println(survivorList.get(i).getName() + " killed " + zombieList.get(k).getName() + " with " + survivorList.get(i).getWeapon().toString());
+                            zombieList.remove(k);
 
+                        }
+                    } else {
+                        System.out.println(survivorList.get(i) + " Missed!");
                     }
                 }
             }

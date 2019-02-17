@@ -17,7 +17,7 @@ public class Axe extends Weapon{
         //Not sure how to do the types yet if it is just the same as name
         super.setName("Axe");
         super.setDamage(7);
-        super.setAccuracy(9/10);
+        super.setAccuracy(7);
     }
     
 }

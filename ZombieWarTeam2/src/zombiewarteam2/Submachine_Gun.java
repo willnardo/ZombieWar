@@ -17,7 +17,7 @@ public class Submachine_Gun extends Weapon{
         //Not sure how to do the types yet if it is just the same as name
         super.setName("Submachine Gun");
         super.setDamage(15);
-        super.setAccuracy(3/5);
+        super.setAccuracy(4);
     }
     
 }

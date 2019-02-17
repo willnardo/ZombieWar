@@ -17,7 +17,7 @@ public class Frying_Pan extends Weapon{
         //Not sure how to do the types yet if it is just the same as name
         super.setName("Frying Pan");
         super.setDamage(3);
-        super.setAccuracy(1);
+        super.setAccuracy(10);
     }
     
 }

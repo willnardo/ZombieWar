@@ -18,7 +18,6 @@ public class ZombieWarTeam2 {
     public int teacherCount = 0;
     public int childCount = 0;
     public int soldierCount = 0;
-
     public int zombieCount = rn.nextInt(19 - 0 + 1) + 1;
     public int commonInfectCount = 0;
     public int TankCount = 0;
@@ -29,16 +28,18 @@ public class ZombieWarTeam2 {
     When createSurvivors is called, it will go through for loop, at each iteration, it will generate a new
     random # that will determine what type of survivor to make.
      */
-    public ArrayList<Survivor> createSurvivors(ArrayList<Weapon> weapons) {
+    //removed the parameter for weapons list passed in. - Dan Sager
+    public ArrayList<Survivor> createSurvivors() {
 //        System.out.println("SURVIVOR COUNT: " + survivorCount);
 //        System.out.println("WEAPON COUNT: " + weaponCount);
         //local variable
         String tempName;
         //
-        ArrayList<Weapon> weaponList = weapons;
+        //use the createWeapons() method to populate this weapon list. - Dan Sager
+        ArrayList<Weapon> weaponList = createWeapons();
         ArrayList<Survivor> survivorList = new ArrayList<>();
         //
-        for (int i = survivorCount; i > 0; i--) {
+        for (int i = survivorCount-1; i > 0; i--) {
             //generate random number
             decider = rn.nextInt(9 - 0 + 1) + 1;
             if (decider >= 0 && decider < 4) {
@@ -71,7 +72,6 @@ public class ZombieWarTeam2 {
                 soldierCount++;
             }
         }
-
         return survivorList;
     }
 
@@ -84,7 +84,7 @@ public class ZombieWarTeam2 {
         //
         for (int i = zombieCount; i > 0; i--) {
             //generate random number
-            decider = rn.nextInt(8 - 0 + 1) + 1;
+            decider = rn.nextInt(9 - 0 + 1) + 1;
             if (decider > 0 && decider < 5) {
                 //create common infected
                 //set common infected name
@@ -103,9 +103,7 @@ public class ZombieWarTeam2 {
                 //increment counter
                 TankCount++;
             }
-
         }
-
         return zombieList;
     }
 
@@ -164,7 +162,7 @@ public class ZombieWarTeam2 {
         ZombieWarTeam2 w = new ZombieWarTeam2();
         //populate survivor arraylist
         ArrayList<Weapon> weaponList = w.createWeapons();
-        ArrayList<Survivor> survivorList = s.createSurvivors(weaponList);
+        ArrayList<Survivor> survivorList = s.createSurvivors();
         ArrayList<Zombie> zombieList = z.createZombies();
         //test print for survivors
         // Will testing push //
